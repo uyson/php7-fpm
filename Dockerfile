@@ -9,8 +9,9 @@ RUN apt-get update && apt-get install -y \
         libmemcached-dev \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd iconv mcrypt pdo pdo_mysql mysqli gettext opcache \
-    && pecl install memcached
-RUN  echo extension=memcached.so >> /usr/local/etc/php/conf.d/memcached.ini
+    && pecl install memcache && pecl install memcached
+RUN  echo extension=memcache.so >> /usr/local/etc/php/conf.d/memcache.ini
+RUN echo extension=memcached.so >> /usr/local/etc/php/conf.d/memcached.ini
 #RUN groupadd -g 501 www \
 #       && useradd -g 501 -u 501 www \
 #       && sed -i 's!www-data!www!g' /usr/local/etc/php-fpm.d/www.conf
