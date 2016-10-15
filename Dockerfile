@@ -1,4 +1,4 @@
-FROM php:7.0-fpm
+FROM php:7.1-fpm
 COPY sources.list /etc/apt/sources.list
 RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
