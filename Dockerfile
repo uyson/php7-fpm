@@ -15,6 +15,6 @@ RUN echo extension=memcached.so >> /usr/local/etc/php/conf.d/memcached.ini
 #RUN groupadd -g 501 www \
 #       && useradd -g 501 -u 501 www \
 #       && sed -i 's!www-data!www!g' /usr/local/etc/php-fpm.d/www.conf
-RUN usermod -u 501 www-data; groupmod -g 501 www-data
+
 
 COPY php.ini /usr/local/etc/php/
