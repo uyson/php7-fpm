@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
         libz-dev \
         libmemcached-dev \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-    && docker-php-ext-install -j$(nproc) gd iconv mcrypt pdo pdo_mysql mysqli gettext opcache \
+    && docker-php-ext-install -j$(nproc) gd iconv mcrypt pdo pdo_mysql mysql mysqli gettext opcache \
     && pecl install memcache && pecl install memcached
 RUN  echo extension=memcache.so >> /usr/local/etc/php/conf.d/memcache.ini
 RUN echo extension=memcached.so >> /usr/local/etc/php/conf.d/memcached.ini
